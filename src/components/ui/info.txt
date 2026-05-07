@@ -1,0 +1,1 @@
+this is the place for all the small components that are used alot; buttons,inputs, cards, etc.
