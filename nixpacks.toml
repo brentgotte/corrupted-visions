@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python311", "libsndfile"]
+nixPkgs = ["nodejs", "python311", "libsndfile"]
 
 [phases.install]
 cmds = ["npm ci", "pip install -r requirements.txt"]
