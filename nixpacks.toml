@@ -3,7 +3,7 @@ nixPkgs = ["nodejs", "python311", "python311Packages.pip", "libsndfile"]
 aptPkgs = ["libatomic1"]
 
 [phases.install]
-cmds = ["npm ci", "pip install -r requirements.txt"]
+cmds = ["npm ci", "pip install --break-system-packages -r requirements.txt"]
 
 [start]
 cmd = "node server/index.js"
