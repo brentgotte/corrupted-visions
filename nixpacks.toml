@@ -1,5 +1,6 @@
 [phases.setup]
 nixPkgs = ["nodejs", "python311", "libsndfile"]
+aptPkgs = ["libatomic1"]
 
 [phases.install]
 cmds = ["npm ci", "pip install -r requirements.txt"]
