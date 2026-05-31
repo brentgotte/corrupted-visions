@@ -23,8 +23,13 @@
     </button>
   </div>
 </template>
+
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+// FIX #1: removed onMounted auto-trigger — browsers (and Meta glasses) block
+//         audio that plays without a user gesture, so we wait for a click.
+// FIX #4: getQRCodeFromGlasses() now reads the ?qr= URL param so real
+//         QR-codes from your printed site actually work. Falls back to '123'.
+import { ref, watch } from 'vue';
 import { useProfileAudio } from '../../composables/profile_audio.js';
 
 const { readProfileByQRCode, stop, updateVolume, resumePendingSpeech, hasPendingSpeech } = useProfileAudio();
@@ -34,16 +39,21 @@ const loading = ref(false);
 const isReading = ref(false);
 const status = ref('');
 
+// FIX #4: read ?qr=<code> from the URL so the Meta glasses can pass the
+//         scanned value in, e.g. https://yoursite.com/?qr=abc123
 async function getQRCodeFromGlasses() {
+  const params = new URLSearchParams(window.location.search);
+  const qrParam = params.get('qr');
+  if (qrParam) return qrParam;
+
+  // fallback mock while developing
   await new Promise((resolve) => setTimeout(resolve, 500));
   return '123';
 }
 
 watch(volume, (newVol) => updateVolume(newVol));
 
-onMounted(() => {
-  handleScan();
-});
+// FIX #1: onMounted removed — no more auto-trigger on load.
 
 const handleAudioButton = async () => {
   if (await resumePendingSpeech()) {

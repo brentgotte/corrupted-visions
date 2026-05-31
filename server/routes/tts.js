@@ -10,7 +10,10 @@ const __dirname = path.dirname(__filename);
 
 // server/routes -> server
 const ROOT = path.resolve(__dirname, '..');
-const PYTHON_EXE = path.resolve(ROOT, '../.venv/Scripts/python.exe');
+// FIX #2: cross-platform Python path (Scripts/ = Windows, bin/ = Linux/Mac)
+const PYTHON_EXE = process.platform === 'win32'
+  ? path.resolve(ROOT, '../.venv/Scripts/python.exe')
+  : path.resolve(ROOT, '../.venv/bin/python');
 const PY_WORKER = path.resolve(ROOT, 'kokoro_worker.py');
 const MAX_CACHE_ITEMS = 100;
 const WORKER_STARTUP_WAIT = 5000; // Give worker 5s to initialize

@@ -17,7 +17,8 @@ export function useProfileAudio() {
 
     if (!profile) {
       try {
-        const response = await fetch(`http://localhost:5173/api/profile/${qrCode}`);
+        const response = await fetch(`// FIX #3: was poort 5173 (Vite), moet 3000 zijn (Express API)
+        http://localhost:3000/api/profile/${qrCode}`);
         if (!response.ok) throw new Error(`Profile request failed: ${response.status}`);
         profile = await response.json();
       } catch {
