@@ -3,3 +3,7 @@
     <RouterView />
   </div>
 </template>
+
+<script setup>
+import QrScanner from './components/qrscanner.vue';
+</script>

@@ -1,44 +1,43 @@
 export const profiles = [
   {
     id: 1,
-    initials: 'MJ',
-    name: 'Mr. Jansen',
-    role: 'teacher',
-    displayRole: 'Teacher',
+    initials: 'RM',
+    name: 'Roos Meijer',
+    role: 'student',
+    displayRole: 'Student',
     image: null,
 
-    matchConfidence: 68,
+    matchConfidence: 82,
 
     professional: [
-      { label: 'Current Position', value: 'Mathematics Teacher' },
+      { label: 'Current Role', value: 'Student' },
       { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Years of Experience', value: '12 years' },
-      { label: 'Education', value: 'MSc Mathematics Education' },
+      { label: 'Study Year', value: 'Year 4' },
+      { label: 'Program', value: 'Economics & Society' },
     ],
 
     dataSources: [
       'School records',
-      'Public reviews',
-      'Behaviour analysis',
-      'Student feedback',
+      'Attendance registration',
+      'Teacher feedback',
     ],
 
     reviews: {
-      overallRating: 2.3,
-      totalReviews: 23,
-      difficultyLevel: 4.2,
+      overallRating: 4.1,
+      totalReviews: 21,
+      difficultyLevel: 4.3,
 
       commonTags: [
-        'Tough grader',
-        'Strict',
-        'Unclear',
+        'Reliable',
+        'Good communicator',
+        'Team player',
       ],
 
       list: [
         {
-          text: 'Very difficult to understand. Expects too much from students.',
-          date: '3 weeks ago',
-          rating: 2,
+          text: 'Roos is always well prepared and listens to everyone in class.',
+          date: '2 weeks ago',
+          rating: 5,
         },
       ],
     },
@@ -46,24 +45,23 @@ export const profiles = [
 
   {
     id: 2,
-    initials: 'LS',
-    name: 'Lina Smit',
+    initials: 'KM',
+    name: 'Kevin Martens',
     role: 'student',
     displayRole: 'Student',
     image: null,
 
-    matchConfidence: 74,
+    matchConfidence: 34,
 
     professional: [
       { label: 'Current Role', value: 'Student' },
       { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 2' },
-      { label: 'Program', value: 'Science & Technology' },
+      { label: 'Study Year', value: 'Year 5' },
+      { label: 'Program', value: 'Technology & Innovation' },
     ],
 
     dataSources: [
       'School records',
-      'Class attendance',
       'Behaviour analysis',
       'Teacher feedback',
     ],
@@ -74,72 +72,15 @@ export const profiles = [
       difficultyLevel: 2.1,
 
       commonTags: [
-        'Uncooperative',
-        'Low participation',
-        'Avoids teamwork',
-        'Inconsistent effort',
+        'Unreliable',
+        'Little initiative',
+        'Avoids collaboration',
       ],
 
       list: [
         {
-          text: 'Frequently avoids group responsibilities and contributes minimally during group projects.',
+          text: 'Never submits on time and shifts responsibility onto others.',
           date: '1 week ago',
-          rating: 2,
-        },
-        {
-          text: 'Shows limited engagement in class discussions and rarely participates unless prompted.',
-          date: '3 weeks ago',
-          rating: 2,
-        },
-      ],
-    },
-  },
-
-  {
-    id: 3,
-    initials: 'DK',
-    name: 'Daan Kramer',
-    role: 'student',
-    displayRole: 'Student',
-    image: null,
-
-    matchConfidence: 82,
-
-    professional: [
-      { label: 'Current Role', value: 'Student' },
-      { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 3' },
-      { label: 'Program', value: 'Media & Communication' },
-    ],
-
-    dataSources: [
-      'School records',
-      'Class attendance',
-      'Social media activity',
-      'Peer feedback',
-    ],
-
-    reviews: {
-      overallRating: 1.9,
-      totalReviews: 21,
-      difficultyLevel: 1.7,
-
-      commonTags: [
-        'Distracted',
-        'Frequently absent',
-        'Disruptive',
-        'Avoids deadlines',
-      ],
-
-      list: [
-        {
-          text: 'Often appears distracted during group work and spends more time on his phone than participating.',
-          date: '5 days ago',
-          rating: 2,
-        },
-        {
-          text: 'Has a tendency to disappear shortly before deadlines and leaves most responsibilities to teammates.',
-          date: '2 weeks ago',
           rating: 1,
         },
       ],
@@ -147,60 +88,9 @@ export const profiles = [
   },
 
   {
-    id: 4,
-    initials: 'NW',
-    name: 'Nora Willems',
-    role: 'student',
-    displayRole: 'Student',
-    image: null,
-
-    matchConfidence: 88,
-
-    professional: [
-      { label: 'Current Role', value: 'Student' },
-      { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 2' },
-      { label: 'Program', value: 'Business & Society' },
-    ],
-
-    dataSources: [
-      'School records',
-      'Class attendance',
-      'Teacher feedback',
-      'Peer feedback',
-    ],
-
-    reviews: {
-      overallRating: 4.4,
-      totalReviews: 19,
-      difficultyLevel: 4.6,
-
-      commonTags: [
-        'Reliable',
-        'Organized',
-        'Takes initiative',
-        'Strong leader',
-      ],
-
-      list: [
-        {
-          text: 'Always takes responsibility during group projects and makes sure deadlines are met.',
-          date: '6 days ago',
-          rating: 5,
-        },
-        {
-          text: 'Good at leading discussions, but sometimes takes over too much.',
-          date: '2 weeks ago',
-          rating: 4,
-        },
-      ],
-    },
-  },
-
-  {
-    id: 5,
-    initials: 'YA',
-    name: 'Yusuf Aydin',
+    id: 3,
+    initials: 'LH',
+    name: 'Lisa Hoogenbosch',
     role: 'student',
     displayRole: 'Student',
     image: null,
@@ -210,38 +100,119 @@ export const profiles = [
     professional: [
       { label: 'Current Role', value: 'Student' },
       { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 2' },
-      { label: 'Program', value: 'Computer Science' },
+      { label: 'Study Year', value: 'Year 4' },
+      { label: 'Program', value: 'Care & Wellbeing' },
     ],
 
     dataSources: [
       'School records',
-      'Project submissions',
-      'Class attendance',
-      'Peer feedback',
+      'Attendance registration',
+      'Teacher feedback',
     ],
 
     reviews: {
-      overallRating: 3.7,
-      totalReviews: 12,
-      difficultyLevel: 3.2,
+      overallRating: 3.8,
+      totalReviews: 14,
+      difficultyLevel: 3.5,
 
       commonTags: [
-        'Technical',
-        'Quiet',
-        'Works independently',
-        'Helpful when asked',
+        'Empathetic',
+        'Sometimes absent',
+        'Good listener',
       ],
 
       list: [
         {
-          text: 'Very good with technical tasks, but does not always explain his work to the group.',
-          date: '1 week ago',
-          rating: 4,
+          text: 'Lisa is friendly and engaged, but sometimes misses meetings.',
+          date: '3 weeks ago',
+          rating: 3,
         },
+      ],
+    },
+  },
+
+  {
+    id: 4,
+    initials: 'DV',
+    name: 'Daan Visser',
+    role: 'student',
+    displayRole: 'Student',
+    image: null,
+
+    matchConfidence: 91,
+
+    professional: [
+      { label: 'Current Role', value: 'Student' },
+      { label: 'Institution', value: 'Westfield High School' },
+      { label: 'Study Year', value: 'Year 5' },
+      { label: 'Program', value: 'Gymnasium' },
+    ],
+
+    dataSources: [
+      'School records',
+      'Grade history',
+      'Teacher feedback',
+    ],
+
+    reviews: {
+      overallRating: 4.8,
+      totalReviews: 31,
+      difficultyLevel: 4.9,
+
+      commonTags: [
+        'Excellent leadership',
+        'Highly reliable',
+        'Proactive',
+      ],
+
+      list: [
         {
-          text: 'Quiet during meetings, but usually delivers good work.',
-          date: '1 month ago',
+          text: 'Absolutely the best student in his class. I trust him completely.',
+          date: '1 week ago',
+          rating: 5,
+        },
+      ],
+    },
+  },
+
+  {
+    id: 5,
+    initials: 'SB',
+    name: 'Sophie de Bruin',
+    role: 'student',
+    displayRole: 'Student',
+    image: null,
+
+    matchConfidence: 68,
+
+    professional: [
+      { label: 'Current Role', value: 'Student' },
+      { label: 'Institution', value: 'Westfield High School' },
+      { label: 'Study Year', value: 'Year 4' },
+      { label: 'Program', value: 'Art & Culture' },
+    ],
+
+    dataSources: [
+      'School records',
+      'Attendance registration',
+      'Behaviour analysis',
+    ],
+
+    reviews: {
+      overallRating: 3.3,
+      totalReviews: 9,
+      difficultyLevel: 2.8,
+
+      commonTags: [
+        'Creative',
+        'Irregular attendance',
+        'Inconsistent engagement',
+      ],
+
+      list: [
+        {
+          text: 'Sophie has good ideas but is hard to reach when things need to be arranged.',
+          date: '5 days ago',
           rating: 3,
         },
       ],
@@ -250,48 +221,41 @@ export const profiles = [
 
   {
     id: 6,
-    initials: 'EB',
-    name: 'Emma Bakker',
+    initials: 'JK',
+    name: 'Jesse Kok',
     role: 'student',
     displayRole: 'Student',
     image: null,
 
-    matchConfidence: 79,
+    matchConfidence: 76,
 
     professional: [
       { label: 'Current Role', value: 'Student' },
       { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 3' },
-      { label: 'Program', value: 'Health & Behaviour' },
+      { label: 'Study Year', value: 'Year 5' },
+      { label: 'Program', value: 'Sport & Physical Education' },
     ],
 
     dataSources: [
       'School records',
-      'Class attendance',
+      'Attendance registration',
       'Teacher feedback',
-      'Student feedback',
     ],
 
     reviews: {
-      overallRating: 4.1,
-      totalReviews: 16,
-      difficultyLevel: 4.0,
+      overallRating: 4.0,
+      totalReviews: 18,
+      difficultyLevel: 4.2,
 
       commonTags: [
-        'Empathetic',
-        'Good presenter',
-        'Supportive',
-        'Confident',
+        'Energetic',
+        'Team player',
+        'Motivating',
       ],
 
       list: [
         {
-          text: 'Strong presenter and good at making others feel included.',
-          date: '3 days ago',
-          rating: 5,
-        },
-        {
-          text: 'Works well in groups, but sometimes avoids conflict too much.',
+          text: 'Jesse brings the group along and ensures a good atmosphere.',
           date: '2 weeks ago',
           rating: 4,
         },
@@ -301,49 +265,174 @@ export const profiles = [
 
   {
     id: 7,
-    initials: 'RS',
-    name: 'Ravi Singh',
+    initials: 'NB',
+    name: 'Nora Bakker',
     role: 'student',
     displayRole: 'Student',
     image: null,
 
-    matchConfidence: 63,
+    matchConfidence: 44,
 
     professional: [
       { label: 'Current Role', value: 'Student' },
       { label: 'Institution', value: 'Westfield High School' },
-      { label: 'Study Year', value: 'Year 2' },
-      { label: 'Program', value: 'Creative Technology' },
+      { label: 'Study Year', value: 'Year 4' },
+      { label: 'Program', value: 'Economics & Society' },
     ],
 
     dataSources: [
       'School records',
-      'Project activity',
-      'Peer feedback',
-      'Public portfolio',
+      'Behaviour analysis',
+      'Attendance registration',
     ],
 
     reviews: {
-      overallRating: 3.0,
-      totalReviews: 9,
-      difficultyLevel: 2.8,
+      overallRating: 2.9,
+      totalReviews: 12,
+      difficultyLevel: 2.4,
 
       commonTags: [
-        'Creative',
-        'Unfocused',
-        'Original ideas',
-        'Needs structure',
+        'Passive',
+        'Low engagement',
+        'Avoids conflict',
       ],
 
       list: [
         {
-          text: 'Comes up with creative ideas, but often needs someone else to structure the work.',
+          text: 'Nora rarely says anything and disappears when decisions need to be made.',
           date: '1 week ago',
-          rating: 3,
+          rating: 2,
         },
+      ],
+    },
+  },
+
+  {
+    id: 8,
+    initials: 'TW',
+    name: 'Thomas Willems',
+    role: 'student',
+    displayRole: 'Student',
+    image: null,
+
+    matchConfidence: 85,
+
+    professional: [
+      { label: 'Current Role', value: 'Student' },
+      { label: 'Institution', value: 'Westfield High School' },
+      { label: 'Study Year', value: 'Year 5' },
+      { label: 'Program', value: 'Technology & Innovation' },
+    ],
+
+    dataSources: [
+      'School records',
+      'Grade history',
+      'Teacher feedback',
+    ],
+
+    reviews: {
+      overallRating: 4.4,
+      totalReviews: 23,
+      difficultyLevel: 4.6,
+
+      commonTags: [
+        'Analytical',
+        'Reliable',
+        'Proactive',
+      ],
+
+      list: [
         {
-          text: 'Can be very useful in brainstorming, but less reliable during execution.',
-          date: '4 weeks ago',
+          text: 'Thomas solves problems before others even see them. Extremely valuable.',
+          date: '3 weeks ago',
+          rating: 5,
+        },
+      ],
+    },
+  },
+
+  {
+    id: 9,
+    initials: 'FO',
+    name: 'Fatima Ouali',
+    role: 'student',
+    displayRole: 'Student',
+    image: null,
+
+    matchConfidence: 79,
+
+    professional: [
+      { label: 'Current Role', value: 'Student' },
+      { label: 'Institution', value: 'Westfield High School' },
+      { label: 'Study Year', value: 'Year 4' },
+      { label: 'Program', value: 'Care & Wellbeing' },
+    ],
+
+    dataSources: [
+      'School records',
+      'Attendance registration',
+      'Teacher feedback',
+    ],
+
+    reviews: {
+      overallRating: 4.2,
+      totalReviews: 19,
+      difficultyLevel: 4.0,
+
+      commonTags: [
+        'Empathetic',
+        'Strong communicator',
+        'Inclusive',
+      ],
+
+      list: [
+        {
+          text: 'Fatima makes sure everyone participates and no one gets left behind.',
+          date: '1 week ago',
+          rating: 5,
+        },
+      ],
+    },
+  },
+
+  {
+    id: 10,
+    initials: 'MB',
+    name: 'Milan Berg',
+    role: 'student',
+    displayRole: 'Student',
+    image: null,
+
+    matchConfidence: 72,
+
+    professional: [
+      { label: 'Current Role', value: 'Student' },
+      { label: 'Institution', value: 'Westfield High School' },
+      { label: 'Study Year', value: 'Year 5' },
+      { label: 'Program', value: 'Gymnasium' },
+    ],
+
+    dataSources: [
+      'School records',
+      'Behaviour analysis',
+      'Teacher feedback',
+    ],
+
+    reviews: {
+      overallRating: 3.6,
+      totalReviews: 11,
+      difficultyLevel: 3.1,
+
+      commonTags: [
+        'Social',
+        'Ambitious',
+        'Sometimes dominant',
+      ],
+
+      list: [
+        {
+          text: 'Milan is smooth and convincing, but it is sometimes unclear whether he is listening or just talking.',
+          date: '2 weeks ago',
           rating: 3,
         },
       ],

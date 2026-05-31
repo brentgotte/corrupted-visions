@@ -121,14 +121,14 @@
     @submitted="onReviewSubmitted"
   />
 </template>
-
 <script setup>
-import { ref } from 'vue'
-import ReviewPopup from '@/components/ReviewPopup.vue'
+import { ref } from 'vue';
+import BaseCard from '@/components/ui/cards/BaseCard.vue';
+import ReviewPopup from '@/components/ReviewPopup.vue';
 
-const popupOpen = ref(false)
-const currentRole = ref('student')
-const reviews = ref([])
+const popupOpen = ref(false);
+const currentRole = ref('student');
+const reviews = ref([]);
 
 const cardPalette = [
   { bg: '#1a1e2e', border: '#2a3a5a', accent: '#3060b0' },
@@ -137,12 +137,9 @@ const cardPalette = [
   { bg: '#201e1a', border: '#4a3a2a', accent: '#b07030' },
   { bg: '#201a1e', border: '#4a2a3a', accent: '#b03060' },
   { bg: '#1a201e', border: '#2a4030', accent: '#409060' },
-]
+];
 
 function onReviewSubmitted(review) {
-  reviews.value.unshift(review)
+  reviews.value.unshift(review);
 }
-
-
-
 </script>

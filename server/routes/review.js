@@ -7,7 +7,6 @@ const supabase = createClient(
   process.env.SUPABASE_PUBLISHABLE_KEY
 );
 
-
 // Get profile based on UUID
 router.get('/profile/:id', async (req, res) => {
   const { id } = req.params;
