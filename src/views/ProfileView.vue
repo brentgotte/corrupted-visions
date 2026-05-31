@@ -136,7 +136,11 @@ async function toggleSpeak() {
     currentAudio.onerror = () => { speaking.value = false; URL.revokeObjectURL(url); };
     currentAudio.play();
   } catch {
-    speaking.value = false;
+    const utterance = new SpeechSynthesisUtterance('ik houd van peren');
+    utterance.lang = 'nl-NL';
+    utterance.onend = () => { speaking.value = false; };
+    utterance.onerror = () => { speaking.value = false; };
+    speechSynthesis.speak(utterance);
   }
 }
 
