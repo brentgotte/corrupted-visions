@@ -63,6 +63,21 @@
           <p class="text-sm text-[#a0a0c0] italic">"{{ profile.reviews.list[0].text }}"</p>
           <p class="text-[11px] text-[#6060a0] mt-1.5">— Recent review, {{ profile.reviews.list[0].date }}</p>
         </div>
+
+        <button
+          @click="toggleSpeak"
+          class="w-full flex items-center justify-center gap-2 rounded-md py-2.5 text-sm font-medium transition-colors"
+          :style="speaking
+            ? 'background-color: #2a1a1a; color: #e05a40; border: 1px solid #4a2a2a;'
+            : 'background-color: #1e1e30; color: #a0a0c0; border: 1px solid #2e2e45;'"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path v-if="!speaking" stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0 0l-3-3m3 3l3-3M9 12H3m18 0h-2" />
+            <path v-if="!speaking" stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 000-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+            <path v-if="speaking" stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 005 0" />
+          </svg>
+          {{ speaking ? 'Stop voorlezen' : 'Pagina voorlezen' }}
+        </button>
       </section>
     </div>
 
@@ -73,7 +88,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { profiles } from '../data/profiles.js';
 
@@ -84,4 +99,39 @@ const profile = computed(() => {
   if (!Number.isInteger(id)) return null;
   return profiles.find((p) => p.id === id) ?? null;
 });
+
+const speaking = ref(false);
+
+function buildSpeechText(p) {
+  const professional = p.professional.map(i => `${i.label}: ${i.value}`).join('. ');
+  const tags = p.reviews.commonTags.join(', ');
+  const recentReview = p.reviews.list[0]?.text ?? '';
+  return [
+    `Profile: ${p.name}.`,
+    `Role: ${p.displayRole}.`,
+    `Match confidence: ${p.matchConfidence} percent.`,
+    professional + '.',
+    `Overall rating: ${p.reviews.overallRating} out of 5.`,
+    `Total reviews: ${p.reviews.totalReviews}.`,
+    `Common tags: ${tags}.`,
+    `Recent review: ${recentReview}.`,
+  ].join(' ');
+}
+
+function toggleSpeak() {
+  if (speaking.value) {
+    speechSynthesis.cancel();
+    speaking.value = false;
+    return;
+  }
+  if (!profile.value) return;
+  const utterance = new SpeechSynthesisUtterance(buildSpeechText(profile.value));
+  utterance.lang = 'en-US';
+  utterance.onend = () => { speaking.value = false; };
+  utterance.onerror = () => { speaking.value = false; };
+  speaking.value = true;
+  speechSynthesis.speak(utterance);
+}
+
+onUnmounted(() => { speechSynthesis.cancel(); });
 </script>
