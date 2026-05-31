@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onUnmounted } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { profiles } from '../data/profiles.js';
 
@@ -101,37 +101,44 @@ const profile = computed(() => {
 });
 
 const speaking = ref(false);
+let currentAudio = null;
 
-function buildSpeechText(p) {
-  const professional = p.professional.map(i => `${i.label}: ${i.value}`).join('. ');
-  const tags = p.reviews.commonTags.join(', ');
-  const recentReview = p.reviews.list[0]?.text ?? '';
-  return [
-    `Profile: ${p.name}.`,
-    `Role: ${p.displayRole}.`,
-    `Match confidence: ${p.matchConfidence} percent.`,
-    professional + '.',
-    `Overall rating: ${p.reviews.overallRating} out of 5.`,
-    `Total reviews: ${p.reviews.totalReviews}.`,
-    `Common tags: ${tags}.`,
-    `Recent review: ${recentReview}.`,
-  ].join(' ');
+function stopAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
+  speaking.value = false;
 }
 
-function toggleSpeak() {
+async function toggleSpeak() {
   if (speaking.value) {
-    speechSynthesis.cancel();
-    speaking.value = false;
+    stopAudio();
     return;
   }
-  if (!profile.value) return;
-  const utterance = new SpeechSynthesisUtterance(buildSpeechText(profile.value));
-  utterance.lang = 'en-US';
-  utterance.onend = () => { speaking.value = false; };
-  utterance.onerror = () => { speaking.value = false; };
+
   speaking.value = true;
-  speechSynthesis.speak(utterance);
+
+  try {
+    const res = await fetch('http://localhost:3000/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: 'ik houd van peren' }),
+    });
+
+    if (!res.ok) throw new Error('TTS request failed');
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    currentAudio = new Audio(url);
+    currentAudio.onended = () => { speaking.value = false; URL.revokeObjectURL(url); };
+    currentAudio.onerror = () => { speaking.value = false; URL.revokeObjectURL(url); };
+    currentAudio.play();
+  } catch {
+    speaking.value = false;
+  }
 }
 
-onUnmounted(() => { speechSynthesis.cancel(); });
+onMounted(() => { toggleSpeak(); });
+onUnmounted(() => { stopAudio(); });
 </script>
