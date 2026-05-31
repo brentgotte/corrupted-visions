@@ -120,7 +120,7 @@ async function toggleSpeak() {
   speaking.value = true;
 
   try {
-    const res = await fetch('http://localhost:3000/api/tts', {
+    const res = await fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: 'ik houd van peren' }),
@@ -139,6 +139,11 @@ async function toggleSpeak() {
   }
 }
 
-onMounted(() => { toggleSpeak(); });
+onMounted(() => {
+  // Auto-trigger only on desktop — mobile browsers block audio without a user gesture
+  if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    toggleSpeak();
+  }
+});
 onUnmounted(() => { stopAudio(); });
 </script>
