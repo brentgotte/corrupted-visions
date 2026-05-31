@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["nodejs", "python311", "libsndfile"]
+nixPkgs = ["nodejs", "python311", "python311Packages.pip", "libsndfile"]
 aptPkgs = ["libatomic1"]
 
 [phases.install]
